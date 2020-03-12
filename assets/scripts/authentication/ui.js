@@ -2,6 +2,8 @@
 
 const store = require('../store.js')
 
+
+// user interface functions related to signing up
 const signUpSuccess = function (data) {
   $('#message').text('A New User has signed up!')
   $('#message').removeClass()
@@ -18,6 +20,7 @@ const signUpFail = function (error) {
   console.log('error to sign up: ', error)
 }
 
+// user interace functions related to signing in
 const signInSuccess = function (data) {
   $('#message').text('The User has signed in!')
   $('#message').removeClass()
@@ -36,6 +39,23 @@ const signInFail = function (error) {
   console.log('error to sign in: ', error)
 }
 
+//  user interface functions related to changing password
+const changePasswordSuccess = function () {
+  $('#message').text('User changed password!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+
+  console.log('User password was change!')
+}
+
+const changePasswordFail = function (error) {
+  $('#message').text('Password remains unmodified!')
+  $('#message').removeClass()
+  $('#message').addClass('fail')
+
+  console.log('error to change password: ', error)
+}
+
 module.exports = {
   signUpSuccess,
 
@@ -43,5 +63,9 @@ module.exports = {
 
   signInSuccess,
 
-  signInFail
+  signInFail,
+
+  changePasswordSuccess,
+
+  changePasswordFail
 }
