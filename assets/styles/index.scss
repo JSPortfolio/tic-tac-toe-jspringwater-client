@@ -7,3 +7,15 @@
 
   padding: 15%;
 }
+
+.col {
+  border: solid 3px black;
+
+  padding: 10%;
+}
+
+.row > div:hover {
+
+  background-color: red;
+
+}

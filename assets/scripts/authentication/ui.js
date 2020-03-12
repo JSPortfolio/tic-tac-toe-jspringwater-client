@@ -18,6 +18,8 @@ const signUpFail = function (error) {
   $('#message').addClass('fail')
 
   console.log('error to sign up: ', error)
+
+
 }
 
 // user interace functions related to signing in
@@ -29,6 +31,11 @@ const signInSuccess = function (data) {
   console.log('User signed in: ', data)
 
   store.user = data.user
+
+  $('#game-page').removeClass()
+  $('#game-page').addClass('visible')
+  $('#sign-in-page').removeClass()
+  $('#sign-in-page').addClass('invisible')
 }
 
 const signInFail = function (error) {
@@ -56,6 +63,30 @@ const changePasswordFail = function (error) {
   console.log('error to change password: ', error)
 }
 
+// user interface functions related to signing out
+const signOutSuccess = function () {
+  $('#message').text(`User is logged out!`)
+  $('#message').removeClass()
+  $('#message').addClass('success')
+
+  store.user = ''
+
+  console.log('User is signed out.', store)
+
+  $('#game-page').removeClass()
+  $('#game-page').addClass('invisible')
+  $('#sign-in-page').removeClass()
+  $('#sign-in-page').addClass('visible')
+}
+
+const signOutFail = function (error) {
+  $('#message').text(`User is still logged in!`)
+  $('#message').removeClass()
+  $('#message').addClass('fail')
+
+  console.log('User failed to sign out', error)
+}
+
 module.exports = {
   signUpSuccess,
 
@@ -67,5 +98,9 @@ module.exports = {
 
   changePasswordSuccess,
 
-  changePasswordFail
+  changePasswordFail,
+
+  signOutSuccess,
+
+  signOutFail
 }

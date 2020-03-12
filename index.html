@@ -14,49 +14,80 @@
 <body>
       <h1>Jeff's Tic-Tac-Toe</h1>
 
-
-  <!--Form element to contain input for creating new user; email,
-  password and confirmation of password-->
-<form id='sign-up' class='border'>
-  <fieldset>
-  <legend>Sign Up</legend>
-    <input type='text' name='credentials[email]' placeholder='user@email.com'>
-    <input type='password' name='credentials[password]' placeholder='password123'>
-    <input type='password' name='credentials[password_confirmation]' placeholder='confirm password'>
-    <input type='submit' value='sign up!'>
- </fieldset>
-</form>
-
-<!--Form element to contain input for signing in existing user: email,
-and password-->
-<form id='sign-in' class='border'>
-  <fieldset>
-  <legend>Sign In</legend>
-    <input type='text' name='credentials[email]' placeholder='user@email.com'>
-    <input type='password' name='credentials[password]' placeholder='password123'>
-    <input type='submit' value='Log In!'>
-  </fieldset>
-</form>
-
-<form id='change-password' class='border'>
-  <fieldset>
-  <legend>Change Password</legend>
-    <input type='password' name='passwords[old]' placeholder='password123'>
-    <input type='password' name='passwords[new]' placeholder='password321'>
-    <input type='submit' value='change password'>
-  </fieldset>
-</form>
-
-<form id='sign-out' class='border'>
-  <fieldset>
-  <legend>Sign Out</legend>
-    <input type='submit' value='Log Out!'>
-  </fieldset>
-</form>
+<div id='sign-in-page' class='visible'>
+    <!--Form element to contain input for creating new user; email,
+    password and confirmation of password-->
+  <form id='sign-up' class='border'>
+    <fieldset>
+    <legend>Sign Up</legend>
+      <input type='text' name='credentials[email]' placeholder='user@email.com'>
+      <input type='password' name='credentials[password]' placeholder='password123'>
+      <input type='password' name='credentials[password_confirmation]' placeholder='confirm password'>
+      <input type='submit' value='sign up!'>
+   </fieldset>
+  </form>
 
 
-<div id='message'>
+
+  <!--Form element to contain input for signing in existing user: email,
+  and password-->
+  <form id='sign-in' class='border'>
+    <fieldset>
+    <legend>Sign In</legend>
+      <input type='text' name='credentials[email]' placeholder='user@email.com'>
+      <input type='password' name='credentials[password]' placeholder='password123'>
+      <input type='submit' value='Log In!'>
+    </fieldset>
+  </form>
 </div>
 
-    </body>
+<div id='game-page' class='invisible'>
+    <form id='change-password' class='border'>
+      <fieldset>
+      <legend>Change Password</legend>
+        <input type='password' name='passwords[old]' placeholder='password123'>
+        <input type='password' name='passwords[new]' placeholder='password321'>
+        <input type='submit' value='change password'>
+      </fieldset>
+    </form>
+
+    <form id='sign-out' class='border'>
+      <fieldset>
+      <legend>Sign Out</legend>
+        <input type='submit' value='Log Out!'>
+      </fieldset>
+    </form>
+
+    <div class='tic-tac-toe-board' class='container'>
+      <div class='row'>
+        <div class='col'>square 0,0</div>
+        <div class='col'>square 0,1</div>
+        <div class='col'>square 0,2</div>
+      </div>
+      <div class='row'>
+        <div class='col'>square 1,0</div>
+        <div class='col'>square 1,1</div>
+        <div class='col'>square 1,2</div>
+      </div>
+      <div class='row'>
+        <div class='col'>square 2,0</div>
+        <div class='col'>square 2,1</div>
+        <div class='col'>square 2,2</div>
+      </div>
+    </div>
+
+    <form id='game-options' class='border'>
+      <fieldset>
+        <legend>Game-options</legend>
+        <input type='button' value='new game'>
+        <input type='button' value='reset game'>
+        <input type='button' value='game statistics'>
+      </fieldset>
+    </form>
+
+    <div id='message'>
+    </div>
+  </div>
+
+</body>
 </html>
