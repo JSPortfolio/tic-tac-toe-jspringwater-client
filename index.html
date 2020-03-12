@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
       <title>Example</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,20 +10,20 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
+</head>
+<body>
       <h1>Jeff's Tic-Tac-Toe</h1>
-      <form id='sign-up' class='border'>
+
 
   <!--Form element to contain input for creating new user; email,
   password and confirmation of password-->
+<form id='sign-up' class='border'>
   <fieldset>
   <legend>Sign Up</legend>
     <input type='text' name='credentials[email]' placeholder='user@email.com'>
     <input type='password' name='credentials[password]' placeholder='password123'>
     <input type='password' name='credentials[password_confirmation]' placeholder='confirm password'>
     <input type='submit' value='sign up!'>
-  </legend>
  </fieldset>
 </form>
 
@@ -37,6 +37,9 @@ and password-->
     <input type='submit' value='Log In!'>
   </fieldset>
 </form>
+
+<div id='message'>
+</div>
 
     </body>
 </html>
