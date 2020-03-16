@@ -6,6 +6,8 @@ const api = require('./api.js')
 
 const ui = require('./ui.js')
 
+//create link to events.js
+
 //  function to call api and ui functions related
 //  to signing up feature
 const onSignUp = function (event) {

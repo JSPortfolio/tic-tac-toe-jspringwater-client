@@ -2,12 +2,10 @@
 
 const store = require('../store.js')
 
+const eventsGame = require('../game/events.js')
 
 // user interface functions related to signing up
 const signUpSuccess = function (data) {
-  $('#message').text('A New User has signed up!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
 
   console.log('User signed up: ', data)
 }
@@ -24,9 +22,6 @@ const signUpFail = function (error) {
 
 // user interace functions related to signing in
 const signInSuccess = function (data) {
-  $('#message').text('The User has signed in!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
 
   console.log('User signed in: ', data)
 
@@ -36,6 +31,8 @@ const signInSuccess = function (data) {
   $('#game-page').addClass('visible')
   $('#sign-in-page').removeClass()
   $('#sign-in-page').addClass('invisible')
+
+  eventsGame.onCreateGame()
 }
 
 const signInFail = function (error) {
@@ -48,26 +45,17 @@ const signInFail = function (error) {
 
 //  user interface functions related to changing password
 const changePasswordSuccess = function () {
-  $('#message').text('User changed password!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
 
   console.log('User password was change!')
 }
 
 const changePasswordFail = function (error) {
-  $('#message').text('Password remains unmodified!')
-  $('#message').removeClass()
-  $('#message').addClass('fail')
 
   console.log('error to change password: ', error)
 }
 
 // user interface functions related to signing out
 const signOutSuccess = function () {
-  $('#message').text(`User is logged out!`)
-  $('#message').removeClass()
-  $('#message').addClass('success')
 
   store.user = ''
 
@@ -80,9 +68,6 @@ const signOutSuccess = function () {
 }
 
 const signOutFail = function (error) {
-  $('#message').text(`User is still logged in!`)
-  $('#message').removeClass()
-  $('#message').addClass('fail')
 
   console.log('User failed to sign out', error)
 }

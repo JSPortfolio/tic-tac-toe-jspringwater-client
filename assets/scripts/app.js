@@ -8,6 +8,10 @@
 
 const authEvents = require('./authentication/events.js')
 
+const gameEvents = require('./game/events.js')
+
+let currentPlayer = 'X'
+
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
 
@@ -17,5 +21,5 @@ $(() => {
 
   $('#sign-out').on('submit', authEvents.onSignOut)
 
-  $('.')
+  $('div .col').on('click', gameEvents.onPlaceTile)
 })
