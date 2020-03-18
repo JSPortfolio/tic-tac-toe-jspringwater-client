@@ -14,9 +14,11 @@
 <body>
       <h1>Jeff's Tic-Tac-Toe</h1>
 
+<!--SIGN-UP/IN VIEW: div element to hold forms for signing up and signing in,
+representing the entrance 'page' of the SPA-->
 <div id='sign-in-page' class='visible'>
-    <!--Form element to contain input for creating new user; email,
-    password and confirmation of password-->
+    <!--SIGN-UP FORM: Form element to contain input for creating new user;
+    email, password and confirmation of password-->
   <form id='sign-up' class='border'>
     <fieldset>
     <legend>Sign Up</legend>
@@ -29,8 +31,8 @@
 
 
 
-  <!--Form element to contain input for signing in existing user: email,
-  and password-->
+  <!--SIGN-IN FORM: Form element to contain input for signing in existing user:
+  email, and password-->
   <form id='sign-in' class='border'>
     <fieldset>
     <legend>Sign In</legend>
@@ -40,52 +42,6 @@
     </fieldset>
   </form>
 </div>
-
-<div id='game-page' class='invisible'>
-    <form id='change-password' class='border'>
-      <fieldset>
-      <legend>Change Password</legend>
-        <input type='password' name='passwords[old]' placeholder='password123'>
-        <input type='password' name='passwords[new]' placeholder='password321'>
-        <input type='submit' value='change password'>
-      </fieldset>
-    </form>
-
-    <form id='sign-out' class='border'>
-      <fieldset>
-      <legend>Sign Out</legend>
-        <input type='submit' value='Log Out!'>
-      </fieldset>
-    </form>
-
-    <div id='playerTurn'>
-    </div>
-
-    <div class='tic-tac-toe-board' class='container'>
-      <div class='row'>
-        <div class='col' id=0>square 0,0</div>
-        <div class='col' id=1>square 0,1</div>
-        <div class='col' id=2>square 0,2</div>
-      </div>
-      <div class='row'>
-        <div class='col' id=3>square 1,0</div>
-        <div class='col' id=4>square 1,1</div>
-        <div class='col' id=5>square 1,2</div>
-      </div>
-      <div class='row'>
-        <div class='col' id=6>square 2,0</div>
-        <div class='col' id=7>square 2,1</div>
-        <div class='col' id=8>square 2,2</div>
-      </div>
-    </div>
-
-    <form id='game-options' class='border'>
-      <fieldset>
-        <legend>Game-options</legend>
-        <input type='button' value='reset game' id='reset-game'>
-        <input type='button' value='game statistics'>
-      </fieldset>
-    </form>
 
     <div id='message'>
     </div>

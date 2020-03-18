@@ -9,11 +9,7 @@ const signUpSuccess = function (data) {
 
   console.log('User signed up: ', data)
 
-  store.game = ' '
-
-  console.log('new user has been store: ', store.user)
-
-  console.log('new game has been created: ', store.game)
+  console.log('new user has been store: ', data.user)
 }
 
 const signUpFail = function (error) {
@@ -21,7 +17,7 @@ const signUpFail = function (error) {
   $('#message').removeClass()
   $('#message').addClass('fail')
 
-  console.log('error to sign up: ', error)
+  console.log('Failed to sign up: ', error)
 
 
 }
@@ -37,8 +33,6 @@ const signInSuccess = function (data) {
   $('#game-page').addClass('visible')
   $('#sign-in-page').removeClass()
   $('#sign-in-page').addClass('invisible')
-
-  eventsGame.onCreateGame()
 }
 
 const signInFail = function (error) {
@@ -46,7 +40,7 @@ const signInFail = function (error) {
   $('#message').removeClass()
   $('#message').addClass('fail')
 
-  console.log('error to sign in: ', error)
+  console.log('Failed to sign in: ', error)
 }
 
 //  user interface functions related to changing password
