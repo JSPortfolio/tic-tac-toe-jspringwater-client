@@ -2,7 +2,10 @@
 
 const store = require('../store.js')
 
+const eventsFile = require('./events.js')
+
 const createGameSuccess = function (data) {
+
   store.game = data.game
 
   console.log('New Game Created: ', data)
@@ -16,10 +19,33 @@ const placeTileSuccess = function (data) {
   store.game = data.game
 
   console.log('Player made a move: ', data)
+
+  eventsFile.onCheckGame()
 }
 
 const placeTileFail = function (error) {
   console.log('Failed to move: ', error)
+}
+
+const retrieveGameSucess = function (data) {
+  console.log('game is retrieved: ', data)
+}
+
+const retrieveGameFail = function (error) {
+  console.log('game is not retrieved: ', error)
+}
+
+const resetGameSuccess = function () {
+  console.log('Game is Reset')
+
+  for (let i = 0; i < store.game.cells.length; i++)
+  {
+    $(`#${i}`).html('')
+  }
+}
+
+const resetGameFail = function () {
+  console.log('Game is NOT reset')
 }
 
 module.exports = {
@@ -29,5 +55,13 @@ module.exports = {
 
   placeTileSuccess,
 
-  placeTileFail
+  placeTileFail,
+
+  retrieveGameSucess,
+
+  retrieveGameFail,
+
+  resetGameSuccess,
+
+  resetGameFail
 }

@@ -8,6 +8,12 @@ const eventsGame = require('../game/events.js')
 const signUpSuccess = function (data) {
 
   console.log('User signed up: ', data)
+
+  store.game = ' '
+
+  console.log('new user has been store: ', store.user)
+
+  console.log('new game has been created: ', store.game)
 }
 
 const signUpFail = function (error) {
@@ -23,9 +29,9 @@ const signUpFail = function (error) {
 // user interace functions related to signing in
 const signInSuccess = function (data) {
 
-  console.log('User signed in: ', data)
-
   store.user = data.user
+
+  console.log('User signed in: ', data)
 
   $('#game-page').removeClass()
   $('#game-page').addClass('visible')
@@ -65,6 +71,13 @@ const signOutSuccess = function () {
   $('#game-page').addClass('invisible')
   $('#sign-in-page').removeClass()
   $('#sign-in-page').addClass('visible')
+
+  for (let i = 0; i < store.game.cells.length; i++)
+  {
+    $(`#${i}`).html('')
+  }
+
+  store.game = ' '
 }
 
 const signOutFail = function (error) {
