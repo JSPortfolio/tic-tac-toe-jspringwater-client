@@ -1,5 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
 
+$miami-yellow: #ffd319;
+
+$sunset-orange:#ff901f;
+
+$yuppy-rose:#ff2975;
+
+$disco-purple:#f222ff;
+
+$byzantium-violet:#8c1eff;
+
+$eighties-border: double 4px;
+
+body {
+  background-color: $yuppy-rose;
+}
+
 .login {
   border: solid 3px black;
 
@@ -25,4 +41,12 @@
   font-size: 100px;
 
   color: green;
+}
+
+.success {
+  border: $eighties-border $miami-yellow;
+}
+
+.failure {
+  border: $eighties-border $byzantium-violet;
 }

@@ -32,7 +32,6 @@ const signIn = function (data) {
 //  function to call curl command to change
 //  user's password
 const changePassword = function (data) {
-
   return $.ajax({
     url: config.apiUrl + '/change-password',
 
@@ -48,7 +47,6 @@ const changePassword = function (data) {
 
 // function to call curl command to log out
 const signOut = function () {
-
   return $.ajax({
     url: config.apiUrl + '/sign-out',
 
