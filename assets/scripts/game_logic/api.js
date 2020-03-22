@@ -56,11 +56,26 @@ const retrieveGame = function (data) {
   })
 }
 
+const showStats = function (data) {
+  return $.ajax({
+    url: config.apiUrl + `/games`,
+
+    method: 'GET',
+
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+
+    data: data
+  })
+}
 
 module.exports = {
   createGame,
 
   placeTile,
 
-  retrieveGame
+  retrieveGame,
+
+  showStats
 }

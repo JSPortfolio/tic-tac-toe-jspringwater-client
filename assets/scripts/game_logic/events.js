@@ -13,6 +13,8 @@ let currentPlayer = 'X'
 let gameOver = false
 
 const onCreateGame = function (event) {
+  event.preventDefault()
+
   console.log('STARTING NEW GAME...')
 
   api.createGame()
@@ -22,26 +24,7 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFail)
 }
 
-const playTileTest = function (event) {
-  $(event.target).html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
 
-  if (gameOver === false)
-  {
-    if (currentPlayer === 'X')
-    {
-      currentPlayer = 'O'
-    }
-
-    else if (currentPlayer === 'O')
-    {
-      currentPlayer = 'X'
-    }
-
-    $('#playerTurn').html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
-
-    console.log(event.target.id)
-  }
-}
 
 const onPlaceTile = function (event) {
   $(event.target).html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
@@ -70,6 +53,9 @@ const onPlaceTile = function (event) {
   $('#playerTurn').html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
 }
 
+
+
+
 const onRetrieveGame = function () {
   api.retrieveGame()
 
@@ -77,6 +63,8 @@ const onRetrieveGame = function () {
 
     .catch(ui.retrieveGameFail)
 }
+
+
 
 const onResetGame = function () {
   api.createGame()
@@ -86,6 +74,9 @@ const onResetGame = function () {
     .catch(ui.resetGameFail)
 }
 
+
+
+//FIX THIS UP!!!
 const onCheckGame = function () {
   let x = 0
 
@@ -126,10 +117,21 @@ const onCheckGame = function () {
   }
 }
 
+
+
+const onShowStats = function () {
+
+  console.log('SHOWING STATS...')
+
+  api.showStats()
+
+    .then(ui.showStatsSuccess)
+
+    .catch(ui.showStatsFail)
+}
+
 module.exports = {
   onCreateGame,
-
-  playTileTest,
 
   onPlaceTile,
 
@@ -137,5 +139,7 @@ module.exports = {
 
   onRetrieveGame,
 
-  onCheckGame
+  onCheckGame,
+
+  onShowStats
 }

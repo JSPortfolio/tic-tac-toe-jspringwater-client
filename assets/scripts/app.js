@@ -29,5 +29,9 @@ $(() => {
 
   $('#new-game').on('click', gameEvents.onCreateGame)
 
+  $('#show-stats').on('click', gameEvents.onShowStats)
+
   $('div .col').on('click', gameEvents.onPlaceTile)
+
+
 })
