@@ -9,6 +9,11 @@ const createGameSuccess = function (data) {
   store.game = data.game
 
   console.log('New Game Created: ', data)
+
+  $('#logged-in-menu-page').removeClass()
+  $('#logged-in-menu-page').addClass('invisible')
+  $('#game-page').removeClass()
+  $('#game-page').addClass('visible')
 }
 
 const createGameFail = function (error) {

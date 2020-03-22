@@ -2,8 +2,6 @@
 
 const store = require('../store.js')
 
-const eventsGame = require('../game/events.js')
-
 // SIGNUP SUCCESS/FAILURE: user interface functions related to signing up
 const signUpSuccess = function (data) {
   console.log('User signed up: ', data)

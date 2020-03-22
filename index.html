@@ -49,20 +49,61 @@ representing the entrance 'page' of the SPA-->
 </div>
 
 
+
+<!--GAME VIEW: div element to hold tic-tac-toe board, reset/new-game
+button and div to hold symbol representing current player's turn-->
+<div id='game-page' class='invisible'>
+
+
+<!--GAME-GRID: div element holding other div elements to represent
+the tic-tac-toe board. Clicking on any of the 'cells' updates the
+game in the UI and the stored-data.-->
+  <div id='game-grid'>
+    <div class='row'>
+      <div class='col-sm' id='cell1'></div>
+      <div class='col-sm' id='cell2'></div>
+      <div class='col-sm' id='cell3'></div>
+    </div>
+    <div class='row'>
+      <div class='col-sm' id='cell4'></div>
+      <div class='col-sm' id='cell5'></div>
+      <div class='col-sm' id='cell6'></div>
+    </div>
+    <div class='row'>
+      <div class='col-sm' id='7'></div>
+      <div class='col-sm' id='8'></div>
+      <div class='col-sm' id='9'></div>
+    </div>
+  </div>
+
+
+<!--PLAYER-TURN: div holding X-or-O, to show player(s) whose turn it is-->
+  <div id='player-turn'>
+  </div>
+</div>
+
+
+
 <!--LOGGEDIN-MENU VIEW:A div element to hold the menu viewers
 see once they sign-in. The menu contains a link to start a new game,
 a link to the stats(previous games played) page, and a feature/function
 to change the user's password-->
 <div id='logged-in-menu-page' class='invisible'>
+
+
+
   <!--NEW-GAME/OLD-GAME FORM: provides input elements that link to game
   view and stats view-->
   <form id='menu-links'>
     <fieldset>
       <legend>TIC-TAK-TOE 2020(copyright 1980)</legend>
-      <input type='button' value='Start a new game!'>
-      <input type='button' value='Revisit old games!'>
+      <input id='new-game' type='button' value='Start a new game!'>
+      <input id='show-stats' type='button' value='Revisit old games!'>
     </fieldset>
   </form>
+
+
+
 
   <!--CHANGE-PASSWORD FORM: allows user to change their password. Sends curl
   command to API to update user account with new password-->
@@ -74,7 +115,12 @@ to change the user's password-->
       <input type='submit' value='Change Password!'>
     </fieldset>
   </form>
+
+
+
 </div>
+
+
 
 
 </body>

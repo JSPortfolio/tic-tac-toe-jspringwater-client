@@ -8,7 +8,7 @@
 
 const authEvents = require('./authentication/events.js')
 
-const gameEvents = require('./game/events.js')
+const gameEvents = require('./game_logic/events.js')
 
 const config = require('./config.js')
 
@@ -27,8 +27,7 @@ $(() => {
 
   $('#sign-out').on('submit', authEvents.onSignOut)
 
-  $('#game-options reset').on('click', gameEvents.onResetGame)
+  $('#new-game').on('click', gameEvents.onCreateGame)
 
   $('div .col').on('click', gameEvents.onPlaceTile)
-
 })
