@@ -17,7 +17,7 @@ const store = require('./store.js')
 let currentPlayer = 'X'
 
 $(() => {
-  $('#playerTurn').html('<h1 class=tilePlaced>' + currentPlayer + '</h1>')
+  $('#player-turn').html('<h1 class=tilePlaced>' + currentPlayer + '</h1>')
 
   $('#sign-up').on('submit', authEvents.onSignUp)
 
@@ -31,7 +31,5 @@ $(() => {
 
   $('#show-stats').on('click', gameEvents.onShowStats)
 
-  $('div .col').on('click', gameEvents.onPlaceTile)
-
-
+  $('div .col-sm').on('click', gameEvents.onPlaceTile)
 })

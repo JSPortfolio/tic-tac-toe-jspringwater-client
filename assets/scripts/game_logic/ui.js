@@ -3,6 +3,9 @@
 const store = require('../store.js')
 
 const eventsFile = require('./events.js')
+
+
+
 // CREATE GAME SUCCESS/FAIL UI: Functions to set
 // message to UI to show success or failure of
 // createGame api.js function
@@ -30,8 +33,6 @@ const placeTileSuccess = function (data) {
   store.game = data.game
 
   console.log('Player made a move: ', data)
-
-  eventsFile.onCheckGame()
 }
 
 

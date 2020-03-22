@@ -25,13 +25,14 @@ const onCreateGame = function (event) {
 }
 
 
-
+// ONPLACETILE: function that checks if cell in board is empty.
+// if empty, function will call api and ui functions and update
+// game in api and ui that corresponds to cell-clicked.
 const onPlaceTile = function (event) {
-  $(event.target).html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
-
-  if (gameOver === false)
+  if (store.game.cells[event.target.id] === '')
   {
-
+    $('#message').empty()
+    $('#message').removeClass()
 
     api.placeTile(event.target.id, currentPlayer, gameOver)
 
@@ -39,22 +40,39 @@ const onPlaceTile = function (event) {
 
       .catch(ui.placeTileFail)
 
-    if (currentPlayer === 'X')
+    $(`#${event.target.id}`).html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
+
+
+    if (gameOver === false)
     {
-      currentPlayer = 'O'
+
+
+      if (currentPlayer === 'X')
+      {
+        currentPlayer = 'O'
+      }
+
+      else if (currentPlayer === 'O')
+      {
+        currentPlayer = 'X'
+      }
+
+      $('#player-turn').html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
     }
 
-    else if (currentPlayer === 'O')
+    else if (gameOver === true)
     {
-      currentPlayer = 'X'
+      $('#player-turn').html('<h1 class="tilePlaced">' + currentPlayer + ' IS WINNER!</h1>')
     }
   }
 
-  $('#playerTurn').html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
+  else
+  {
+    $('#message').html(`<h1>YOU CANNOT PLACE A TILE THERE</h1>`)
+    $('#message').removeClass()
+    $('#message').addClass('failure')
+  }
 }
-
-
-
 
 const onRetrieveGame = function () {
   api.retrieveGame()
