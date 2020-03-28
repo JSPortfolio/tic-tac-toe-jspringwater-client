@@ -2,9 +2,7 @@
 
 const store = require('../store.js')
 
-const eventsFile = require('./events.js')
-
-
+const gameStatus = require('./game-status')
 
 // CREATE GAME SUCCESS/FAIL UI: Functions to set
 // message to UI to show success or failure of
@@ -29,10 +27,39 @@ const createGameFail = function (error) {
 
 
 
+// PLACE TILE SUCCESS/FAIL UI: Functions to
+// set message to UI to show success or
+// failure of placeTile api.js function
 const placeTileSuccess = function (data) {
   store.game = data.game
 
   console.log('Player made a move: ', data)
+
+  console.log(gameStatus.currentPlayerUI())
+
+  if (gameStatus.checkForWin() === true)
+  {
+    $('#message').html(`<h1 class='tilePlaced'>${gameStatus.currentPlayerUI()} is the WINNER!</h1>`)
+    $('#message').addClass('success')
+
+    store.game.over = true
+  }
+
+  else if (gameStatus.checkForTie() === true)
+  {
+    $('#message').html(`<h1 class='tilePlaced'>NOBODY WINS! TIE!!!</h1>`)
+    $('#message').addClass('success')
+
+    store.game.over = true
+  }
+
+  else
+  {
+    gameStatus.nextTurnUI()
+
+    console.log(gameStatus.currentPlayerUI())
+  }
+
 }
 
 
