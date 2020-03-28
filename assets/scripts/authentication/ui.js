@@ -4,9 +4,11 @@ const store = require('../store.js')
 
 // SIGNUP SUCCESS/FAILURE: user interface functions related to signing up
 const signUpSuccess = function (data) {
-  console.log('User signed up: ', data)
+  console.log(data.user)
 
-  console.log('new user has been store: ', data.user)
+  $('#sign-up :text').val('')
+  $('#sign-up :password').val('')
+
 
   $('#message').html('<h1>NEW USER SIGNED UP!</h1>')
   $('#message').removeClass()
@@ -14,6 +16,10 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFail = function (error) {
+
+  $('#sign-up :text').val('')
+  $('#sign-up :password').val('')
+
   $('#message').html('<h1>ERROR! FAILURE TO SIGN UP</h1>')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -25,6 +31,9 @@ const signUpFail = function (error) {
 const signInSuccess = function (data) {
 
   store.user = data.user
+
+  $('#sign-in :text').val('')
+  $('#sign-in :password').val('')
 
   console.log('User signed in: ', data)
 
@@ -39,6 +48,10 @@ const signInSuccess = function (data) {
 }
 
 const signInFail = function (error) {
+
+  $('#sign-in :text').val('')
+  $('#sign-in :password').val('')
+
   $('#message').html('<h1>ERROR! FAILURE TO SIGN IN!</h1>')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -48,6 +61,9 @@ const signInFail = function (error) {
 
 // CHANGEPASSWORD SUCCESS/FAILURE: user interface functions related to changing password
 const changePasswordSuccess = function () {
+
+  $('#change-password :password').val('')
+  $('#changePassword :password').val('')
 
   console.log('User password was change!')
 

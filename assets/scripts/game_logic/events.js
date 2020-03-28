@@ -10,6 +10,9 @@ const ui = require('./ui.js')
 
 const gameStatus = require('./game-status.js')
 
+
+
+// ONCREATEGAME: uses api and ui functions for creating and saving a new game.
 const onCreateGame = function (event) {
   event.preventDefault()
 
@@ -21,6 +24,7 @@ const onCreateGame = function (event) {
 
     .catch(ui.createGameFail)
 }
+
 
 
 // ONPLACETILE: function that checks if cell in board is empty.
@@ -51,26 +55,9 @@ const onPlaceTile = function (event) {
 
 
 
-const onRetrieveGame = function () {
-  api.retrieveGame()
-
-    .then(ui.retrieveGameSucess)
-
-    .catch(ui.retrieveGameFail)
-}
-
-
-
-const onResetGame = function () {
-  api.createGame()
-
-    .then(ui.resetGameSuccess)
-
-    .catch(ui.resetGameFail)
-}
-
-
-
+// ON SHOWSTATS: function that uses the showStats api function
+// to retrieve, organize and show information about all the games a
+// user played.
 const onShowStats = function () {
 
   console.log('SHOWING STATS...')
@@ -82,14 +69,12 @@ const onShowStats = function () {
     .catch(ui.showStatsFail)
 }
 
+
+
 module.exports = {
   onCreateGame,
 
   onPlaceTile,
-
-  onResetGame,
-
-  onRetrieveGame,
 
   onShowStats
 }
