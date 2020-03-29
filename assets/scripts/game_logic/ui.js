@@ -110,8 +110,8 @@ const showStatsSuccess = function (data) {
 
   $('#stats-view').html(`<h1 class=tilePlaced>USER: ${store.user.email} </h1>
                          <h2 class=tilePlaced>GAMES PLAYED: ${data.games.length} </h2>
-                         <h2 class=tilePlaced>GAMES NOT WON: ${incompleteGames} </h2>
-                         <h2 class=tilePlaced>GAMES WON: ${completeGames} </h2>`)
+                         <h2 class=tilePlaced>GAMES COMPLETED: ${completeGames} </h2>
+                         <h2 class=tilePlaced>GAMES NOT COMPLETED: ${incompleteGames} </h2>`)
 }
 
 
