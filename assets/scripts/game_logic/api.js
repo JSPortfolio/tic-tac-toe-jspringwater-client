@@ -20,7 +20,7 @@ const createGame = function (data) {
 
 const placeTile = function (indexVal, playerVal, gameStatus) {
   return $.ajax({
-    url: config.apiUrl + `games/${store.game.id}`,
+    url: config.apiUrl + `/games/${store.game.id}`,
 
     method: 'PATCH',
 
@@ -44,7 +44,7 @@ const placeTile = function (indexVal, playerVal, gameStatus) {
 
 const retrieveGame = function (data) {
   return $.ajax({
-    url: config.apiUrl + `games/${store.game.id}`,
+    url: config.apiUrl + `/games/${store.game.id}`,
 
     method: 'GET',
 

@@ -7,12 +7,12 @@ const nextTurnUI = function () {
 
   if (currentPlayer === 'X')
   {
-    currentPlayer = '0'
+    currentPlayer = 'O'
   }
 
-  else if (currentPlayer === '0')
+  else if (currentPlayer === 'O')
   {
-    currentPlayer = '0'
+    currentPlayer = 'X'
   }
 
   $('#player-turn').html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
