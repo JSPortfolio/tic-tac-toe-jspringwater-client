@@ -54,7 +54,7 @@ const placeTileSuccess = function (data) {
 
     data.game.over = true
 
-    store.game = data.game
+    console.log(store.game)
   }
 
   // Check for tie
@@ -64,8 +64,6 @@ const placeTileSuccess = function (data) {
     $('#message').addClass('success')
 
     data.game.over = true
-
-    store.game = data.game
   }
 
   // Switch to next player if no winner or tied game
@@ -94,17 +92,40 @@ const showStatsSuccess = function (data) {
 
   let completeGames = 0
 
+  let gamesXWon = 0
+
+  let gamesOWon = 0
+
+  let tiedGames = 0
+
+  console.log(data.games)
   // Count completed/incompleted games user played
   for (let i = 0; i < data.games.length; i++)
   {
-    if (data.games[i].over === false)
-    {
-      incompleteGames += 1
-    }
+    store.game = data.games[i]
 
-    else if (data.games[i].over === true)
+    if (gameStatus.checkWinner() === 'Xwinner')
     {
       completeGames += 1
+
+      gamesXWon += 1
+    }
+
+    else if (gameStatus.checkWinner() === 'Owinner')
+    {
+      completeGames += 1
+
+      gamesOWon += 1
+    }
+
+    else if (gameStatus.checkForTie() === true)
+    {
+      tiedGames += 1
+    }
+
+    else
+    {
+      incompleteGames += 1
     }
   }
 
@@ -112,10 +133,16 @@ const showStatsSuccess = function (data) {
   $('#change-password-view').hide()
   $('#game-view').hide()
 
-  $('#stats-view').html(`<h1 class=tilePlaced>USER: ${store.user.email} </h1>
-                         <h2 class=tilePlaced>GAMES PLAYED: ${data.games.length} </h2>
-                         <h2 class=tilePlaced>GAMES COMPLETED: ${completeGames} </h2>
-                         <h2 class=tilePlaced>GAMES NOT COMPLETED: ${incompleteGames} </h2>`)
+  $('#stats-view').html(`<h1 class=tilePlaced>USER: ${store.user.email}</h1>
+                         <h2>GAMES PLAYED: ${data.games.length}</h2>
+                         <h2>GAMES COMPLETED: ${completeGames}</h2>
+                         <h2>GAMES X WON: ${gamesXWon} </h2>
+                         <h2>GAMES O WON: ${gamesOWon} </h2>
+                         <h2>GAMES TIED: ${tiedGames} </h2>
+                         <h2>GAMES NOT COMPLETED: ${incompleteGames} </h2>`)
+
+  $('#message').removeClass()
+  $('#message').empty()
 }
 
 

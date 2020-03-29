@@ -69,7 +69,114 @@ const checkForWin = function () {
     return true
   }
 
-  z+=1
+}
+
+const checkWinner = function () {
+  let player = 'X'
+
+  if (player === 'X')
+  {
+    // Check for vertical win
+    for (let x = 0; x < 3; x++)
+    {
+      if (store.game.cells[x] === player &&
+          store.game.cells[x] === store.game.cells[x + 3] &&
+          store.game.cells[x + 3] === store.game.cells[x + 6])
+      {
+        return 'Xwinner'
+      }
+    }
+
+    // Check for horizontal win
+    let y = 0
+
+    while (y < 9)
+    {
+      if (store.game.cells[y] === player &&
+          store.game.cells[y] === store.game.cells[y + 1] &&
+          store.game.cells[y + 1] === store.game.cells[y + 2])
+      {
+        return 'Xwinner'
+      }
+
+      else
+      {
+        y += 3
+      }
+    }
+
+    // Check for diagonal win
+    let z = 0
+
+    if (store.game.cells[z] === player &&
+        store.game.cells[z] === store.game.cells[z + 4] &&
+        store.game.cells[z + 4] === store.game.cells[z + 8])
+    {
+      return 'Xwinner'
+    }
+
+    z += 2
+
+    if (store.game.cells[z] === player &&
+        store.game.cells[z] === store.game.cells[z + 2] &&
+        store.game.cells[z + 2] === store.game.cells[z + 4])
+    {
+      return 'Xwinner'
+    }
+  }
+
+  player = 'O'
+
+  if (player === 'O')
+  {
+    // Check for vertical win
+    for (let x = 0; x < 3; x++)
+    {
+      if (store.game.cells[x] === player &&
+          store.game.cells[x] === store.game.cells[x + 3] &&
+          store.game.cells[x + 3] === store.game.cells[x + 6])
+      {
+        return 'Owinner'
+      }
+    }
+
+    // Check for horizontal win
+    let y = 0
+
+    while (y < 9)
+    {
+      if (store.game.cells[y] === player &&
+          store.game.cells[y] === store.game.cells[y + 1] &&
+          store.game.cells[y + 1] === store.game.cells[y + 2])
+      {
+        return 'Owinner'
+      }
+
+      else
+      {
+        y += 3
+      }
+    }
+
+    // Check for diagonal win
+    let z = 0
+
+    if (store.game.cells[z] === player &&
+        store.game.cells[z] === store.game.cells[z + 4] &&
+        store.game.cells[z + 4] === store.game.cells[z + 8])
+    {
+      return 'Owinner'
+    }
+
+    z += 2
+
+    if (store.game.cells[z] === player &&
+        store.game.cells[z] === store.game.cells[z + 2] &&
+        store.game.cells[z + 2] === store.game.cells[z + 4])
+    {
+      return 'Owinner'
+    }
+  }
 
 }
 
@@ -77,7 +184,7 @@ const checkForWin = function () {
 const checkForTie = function () {
   let spacesFIlled = 0
 
-  store.game.cells.forEach(element => {if (element === 'X' || element === 'O') { spacesFIlled++} })
+  store.game.cells.forEach(element => { if (element === 'X' || element === 'O') { spacesFIlled++} })
 
   if (spacesFIlled === 9 && store.game.over !== true)
   {
@@ -101,6 +208,8 @@ module.exports = {
   nextTurnUI,
 
   checkForWin,
+
+  checkWinner,
 
   currentPlayerUI,
 
