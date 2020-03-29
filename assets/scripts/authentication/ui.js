@@ -49,7 +49,7 @@ const signInFail = function (error) {
 
   $('#message').html('<h1>ERROR! FAILURE TO SIGN IN!</h1>')
   $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#message').addClass('failure')
 
   console.log('FAILUE TO SIGN IN: ', error)
 }
@@ -58,9 +58,6 @@ const signInFail = function (error) {
 const changePasswordSuccess = function () {
 
   $('#change-password :password').val('')
-  $('#changePassword :password').val('')
-
-  console.log('User password was change!')
 
   $('#message').html('<h1>USER PASSWORD CHANGED!</h1>')
   $('#message').removeClass()
@@ -68,6 +65,9 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFail = function (error) {
+
+  $('#change-password :password').val('')
+
   $('#message').html('<h1>USER PASSWORD NOT CHANGED!</h1>')
   $('#message').removeClass()
   $('#message').addClass('failure')

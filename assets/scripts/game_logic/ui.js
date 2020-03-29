@@ -90,14 +90,15 @@ const showStatsSuccess = function (data) {
 
   let completeGames = 0
 
+  // Count completed/incompleted games user played
   for (let i = 0; i < data.games.length; i++)
   {
-    if(data.games[i].over === false)
+    if (data.games[i].over === false)
     {
       incompleteGames += 1
     }
 
-    else if(data.games[i].over === true)
+    else if (data.games[i].over === true)
     {
       completeGames += 1
     }
@@ -107,9 +108,10 @@ const showStatsSuccess = function (data) {
   $('#change-password-view').hide()
   $('#game-view').hide()
 
-  $('#stats-view').html(`<h1 class=tilePlaced>GAMES PLAYED: ${data.games.length} </h1>
-                         <h1 class=tilePlaced>GAMES NOT COMPLETED: ${incompleteGames} </h1>
-                         <h1 class=tilePlaced>GAMES COMPLETED: ${completeGames} </h1>`)
+  $('#stats-view').html(`<h1 class=tilePlaced>USER: ${store.user.email} </h1>
+                         <h2 class=tilePlaced>GAMES PLAYED: ${data.games.length} </h2>
+                         <h2 class=tilePlaced>GAMES NOT COMPLETED: ${incompleteGames} </h2>
+                         <h2 class=tilePlaced>GAMES COMPLETED: ${completeGames} </h2>`)
 }
 
 
