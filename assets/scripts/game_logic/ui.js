@@ -52,7 +52,9 @@ const placeTileSuccess = function (data) {
     $('#message').html(`<h1>${gameStatus.currentPlayerUI()} is the WINNER!</h1>`)
     $('#message').addClass('success')
 
-    store.game.over = true
+    data.game.over = true
+
+    store.game = data.game
   }
 
   // Check for tie
@@ -61,7 +63,9 @@ const placeTileSuccess = function (data) {
     $('#message').html(`<h1>NOBODY WINS! TIE!!!</h1>`)
     $('#message').addClass('success')
 
-    store.game.over = true
+    data.game.over = true
+
+    store.game = data.game
   }
 
   // Switch to next player if no winner or tied game
