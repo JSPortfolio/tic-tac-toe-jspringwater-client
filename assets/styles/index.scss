@@ -1,5 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
 $miami-yellow: #ffd319;
 
 $sunset-orange:#ff901f;
@@ -10,32 +12,57 @@ $disco-purple:#f222ff;
 
 $byzantium-violet:#8c1eff;
 
-$eighties-border: double 4px;
+$eighties-border: dashed 10px;
 
 body {
   background-color: $yuppy-rose;
+
+  color: white;
+
+  font-family: 'Press Start 2P', cursive;
 }
 
-.login {
-  border: solid 3px black;
+.menu {
+
+  background-color: $disco-purple;
+
+  border: double 15px white;
 
   width: 30%;
+}
 
-  padding: 15%;
+input[type=submit] {
+
+  background-color: $byzantium-violet;
+
+  border: 0;
+
+  text-decoration: none;
+
+}
+
+input[type=button] {
+  background-color: $byzantium-violet;
+
+  border: 0;
+
+  text-decoration: none;
+
 }
 
 .col-sm {
-  border: solid 3px black;
+  display: flex;
+
+  border: $eighties-border white;
+
+  border: 10%;
 
   padding: 10%;
+
+  align-items: center;
+
+  background-color: $disco-purple
 }
-
-.row > div:hover {
-
-  background-color: red;
-
-}
-
 
 .tilePlaced {
   font-size: 100px;

@@ -16,8 +16,6 @@ const gameStatus = require('./game-status.js')
 const onCreateGame = function (event) {
   event.preventDefault()
 
-  console.log('STARTING NEW GAME...')
-
   api.createGame()
 
     .then(ui.createGameSuccess)
@@ -59,8 +57,6 @@ const onPlaceTile = function (event) {
 // to retrieve, organize and show information about all the games a
 // user played.
 const onShowStats = function () {
-
-  console.log('SHOWING STATS...')
 
   api.showStats()
 

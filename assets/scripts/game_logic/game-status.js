@@ -3,6 +3,7 @@ const store = require('../store.js')
 
 let currentPlayer = 'X'
 
+// NEXTUTRNUI: function to display current player to Interface
 const nextTurnUI = function () {
 
   if (currentPlayer === 'X')
@@ -18,7 +19,9 @@ const nextTurnUI = function () {
   $('#player-turn').html('<h1 class="tilePlaced">' + currentPlayer + '</h1>')
 }
 
+// CHECKFORWIN: function to check for winner
 const checkForWin = function () {
+  // Check for vertical win
   for (let x = 0; x < 3; x++)
   {
     if (store.game.cells[x] === currentPlayer &&
@@ -29,6 +32,7 @@ const checkForWin = function () {
     }
   }
 
+  // Check for horizontal win
   let y = 0
 
   while (y < 9)
@@ -46,6 +50,7 @@ const checkForWin = function () {
     }
   }
 
+  // Check for diagonal win
   let z = 0
 
   if (store.game.cells[z] === currentPlayer &&
@@ -68,6 +73,7 @@ const checkForWin = function () {
 
 }
 
+// CHECKFORTIE: function to check if game-grid is full and no user has won
 const checkForTie = function () {
   let spacesFIlled = 0
 
@@ -79,7 +85,7 @@ const checkForTie = function () {
   }
 }
 
-
+// CURRENTPLAYERUI: functions to set and get currentPlayer value
 const currentPlayerUI = function () {
   return currentPlayer
 }

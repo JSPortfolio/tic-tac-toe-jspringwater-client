@@ -11,14 +11,16 @@ const createGameSuccess = function (data) {
 
   store.game = data.game
 
-  console.log('New Game Created: ', data)
-
   gameStatus.currentPlayerUISet('X')
 
   $('#stats-view').hide()
   $('#change-password-view').hide()
   $('#game-view').show()
 
+  $('#message').removeClass()
+  $('#message').empty(
+
+  )
   for (let i = 0; i < store.game.cells.length; i++)
   {
     $(`#${i}`).html('')
@@ -28,7 +30,7 @@ const createGameSuccess = function (data) {
 
 
 const createGameFail = function (error) {
-  console.log('Failed to create new game: ', error)
+  console.log('FAILURE TO START GAME: ', error)
 }
 
 
@@ -38,28 +40,31 @@ const createGameFail = function (error) {
 // set message to UI to show success or
 // failure of placeTile api.js function
 const placeTileSuccess = function (data) {
+
+  // update game
   store.game = data.game
 
-  console.log('Player made a move: ', data)
+  // Else/if statement to check for winner or tie or just switch-players
 
-  console.log(gameStatus.currentPlayerUI())
-
+  // Check for winner
   if (gameStatus.checkForWin() === true)
   {
-    $('#message').html(`<h1 class='tilePlaced'>${gameStatus.currentPlayerUI()} is the WINNER!</h1>`)
+    $('#message').html(`<h1>${gameStatus.currentPlayerUI()} is the WINNER!</h1>`)
     $('#message').addClass('success')
 
     store.game.over = true
   }
 
+  // Check for tie
   else if (gameStatus.checkForTie() === true)
   {
-    $('#message').html(`<h1 class='tilePlaced'>NOBODY WINS! TIE!!!</h1>`)
+    $('#message').html(`<h1>NOBODY WINS! TIE!!!</h1>`)
     $('#message').addClass('success')
 
     store.game.over = true
   }
 
+  // Switch to next player if no winner or tied game
   else
   {
     gameStatus.nextTurnUI()
@@ -72,7 +77,7 @@ const placeTileSuccess = function (data) {
 
 
 const placeTileFail = function (error) {
-  console.log('Failed to move: ', error)
+  console.log('FAILURE TO MAKE MOVE: ', error)
 }
 
 
@@ -80,19 +85,37 @@ const placeTileFail = function (error) {
 // SHOW STATS SUCCESS/FAIL UI: Functions to set message to
 // UI to show success or failure of showStats api.js function
 const showStatsSuccess = function (data) {
-  console.log('Archive was found: ', data)
+
+  let incompleteGames = 0
+
+  let completeGames = 0
+
+  for (let i = 0; i < data.games.length; i++)
+  {
+    if(data.games[i].over === false)
+    {
+      incompleteGames += 1
+    }
+
+    else if(data.games[i].over === true)
+    {
+      completeGames += 1
+    }
+  }
 
   $('#stats-view').show()
   $('#change-password-view').hide()
   $('#game-view').hide()
 
-  $('#stats-view').html(`<h1 class=tilePlaced>GAMES PLAYED: ${data.games.length}</h1>`)
+  $('#stats-view').html(`<h1 class=tilePlaced>GAMES PLAYED: ${data.games.length} </h1>
+                         <h1 class=tilePlaced>GAMES NOT COMPLETED: ${incompleteGames} </h1>
+                         <h1 class=tilePlaced>GAMES COMPLETED: ${completeGames} </h1>`)
 }
 
 
 
 const showStatsFail = function (error) {
-  console.log('stats were not found: ', error)
+  console.log('FAILURE TO FIND STATS: ', error)
 }
 
 module.exports = {

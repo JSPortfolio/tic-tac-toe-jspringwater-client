@@ -4,7 +4,6 @@ const store = require('../store.js')
 
 // SIGNUP SUCCESS/FAILURE: user interface functions related to signing up
 const signUpSuccess = function (data) {
-  console.log(data.user)
 
   $('#sign-up :text').val('')
   $('#sign-up :password').val('')
@@ -24,7 +23,7 @@ const signUpFail = function (error) {
   $('#message').removeClass()
   $('#message').addClass('failure')
 
-  console.log('Failed to sign up: ', error)
+  console.log('FAILURE TO SIGN UP: ', error)
 }
 
 // SIGNIN SUCCESS/FAILURE: user interace functions related to signing in
@@ -37,8 +36,6 @@ const signInSuccess = function (data) {
 
   $('#sign-in-up-view').hide()
   $('#logged-in-menu').show()
-
-  console.log('User signed in: ', data)
 
   $('#message').html('<h1>SIGN-IN SUCCESSFUL!</h1>')
   $('#message').removeClass()
@@ -54,7 +51,7 @@ const signInFail = function (error) {
   $('#message').removeClass()
   $('#message').addClass('success')
 
-  console.log('Failed to sign in: ', error)
+  console.log('FAILUE TO SIGN IN: ', error)
 }
 
 // CHANGEPASSWORD SUCCESS/FAILURE: user interface functions related to changing password
@@ -71,19 +68,17 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFail = function (error) {
-  $('#message').html('<h1>SIGNUP SUCCESSFUL!</h1>')
+  $('#message').html('<h1>USER PASSWORD NOT CHANGED!</h1>')
   $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#message').addClass('failure')
 
-  console.log('error to change password: ', error)
+  console.log('FAILURE TO CHANGE PASSWORD: ', error)
 }
 
 // SIGNOUT SUCCESS/FAILURE: user interface functions related to signing out
 const signOutSuccess = function () {
 
   store.user = ''
-
-  console.log('User is signed out.', store)
 
   $('#stats-view').hide()
   $('#change-password-view').hide()
@@ -102,9 +97,9 @@ const signOutSuccess = function () {
 const signOutFail = function (error) {
   $('#message').html('<h1>ERROR! USER NOT SIGNED OUT!</h1>')
   $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#message').addClass('failure')
 
-  console.log('User failed to sign out', error)
+  console.log('FAILURE TO SIGN OUT: ', error)
 }
 
 module.exports = {

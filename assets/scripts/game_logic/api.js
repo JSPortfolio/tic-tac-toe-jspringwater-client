@@ -4,6 +4,7 @@ const config = require('../config.js')
 
 const store = require('../store.js')
 
+// CREATEGAME: API function to create ('post') new game object
 const createGame = function (data) {
   return $.ajax({
     url: config.apiUrl + `/games`,
@@ -18,6 +19,7 @@ const createGame = function (data) {
   })
 }
 
+// PLACETILE: API function to update game object
 const placeTile = function (indexVal, playerVal, gameStatus) {
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,
@@ -42,20 +44,7 @@ const placeTile = function (indexVal, playerVal, gameStatus) {
   })
 }
 
-const retrieveGame = function (data) {
-  return $.ajax({
-    url: config.apiUrl + `/games/${store.game.id}`,
-
-    method: 'GET',
-
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-
-    data: data
-  })
-}
-
+// SHOWSTATS: API function to retrieve all game objects created
 const showStats = function (data) {
   return $.ajax({
     url: config.apiUrl + `/games`,
@@ -74,8 +63,6 @@ module.exports = {
   createGame,
 
   placeTile,
-
-  retrieveGame,
 
   showStats
 }

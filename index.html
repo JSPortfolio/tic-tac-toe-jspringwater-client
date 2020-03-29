@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 <body>
-      <h1>Jeff's Tic-Tac-Toe</h1>
+      <h1>Jeff's Tic-Tak-Toe 2020</h1>
 
 
 
@@ -26,7 +26,7 @@ error-or-success of function-->
 
   <!--SIGN-UP/IN VIEW: div element to hold forms for signing up and signing in,
   representing the entrance 'page' of the SPA-->
-  <div id='sign-in-up-view' class='visible'>
+  <div id='sign-in-up-view' class='menu'>
 
 
 
@@ -77,9 +77,9 @@ error-or-success of function-->
   game in the UI and the stored-data.-->
     <div id='game-grid'>
       <div class='row'>
-        <div class='col-sm' id='0'></div>
-        <div class='col-sm' id='1'></div>
-        <div class='col-sm' id='2'></div>
+        <div class='col-sm' id='0'><h1></h1></div>
+        <div class='col-sm' id='1'><h1></h1></div>
+        <div class='col-sm' id='2'><h1></h1></div>
       </div>
       <div class='row'>
         <div class='col-sm' id='3'></div>
@@ -140,7 +140,7 @@ to change the user's password-->
 
   <!--NEW-GAME/OLD-GAME FORM: provides input elements that link to game
   view and stats view-->
-  <form id='menu-links'>
+  <form id='menu-links' class='menu'>
     <fieldset>
       <legend>TIC-TAK-TOE 2020(copyright 1980)</legend>
       <input id='new-game' type='button' value='NEW/RESET GAME'>

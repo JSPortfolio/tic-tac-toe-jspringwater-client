@@ -6,13 +6,11 @@ const api = require('./api.js')
 
 const ui = require('./ui.js')
 
-//  function to call api and ui functions related
+//  ONSIGNUP: function to call api and ui functions related
 //  to signing up feature
 const onSignUp = function (event) {
 
   event.preventDefault()
-
-  console.log('SIGNING UP NEW USER...')
 
   api.signUp(getFormFields(event.target))
 
@@ -21,12 +19,10 @@ const onSignUp = function (event) {
     .catch(ui.signUpFail)
 }
 
-// function to call api and ui function related
+// ONSIGNIN: function to call api and ui function related
 // to signing in feature
 const onSignIn = function (event) {
   event.preventDefault()
-
-  console.log('SIGNING IN USER...')
 
   api.signIn(getFormFields(event.target))
 
@@ -35,12 +31,10 @@ const onSignIn = function (event) {
     .catch(ui.signInFail)
 }
 
-// function to call api and ui functions related
-// to changing user's password
+// ONCHANGEPASSWORD: function to call api and
+// ui functions related to changing user's password
 const onChangePassword = function (event) {
   event.preventDefault()
-
-  console.log('CHANGING USER PASSWORD...')
 
   api.changePassword(getFormFields(event.target))
 
@@ -49,17 +43,20 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFail)
 }
 
+// SHOWCHANGEPASSWORD: function to access change-password view
 const showChangePassword = function () {
   $('#stats-view').hide()
   $('#change-password-view').show()
   $('#game-view').hide()
+
+  $('#message').empty()
+  $('#message').removeClass()
 }
 
-// function to call api and ui functions related
-// to logging user out
+// ONSIGNOUT: function to call api and ui
+// functions related to logging user out
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('SIGNING USER OUT...')
 
   api.signOut()
 
