@@ -22,86 +22,111 @@ error-or-success of function-->
 
 
 
-<!--SIGN-UP/IN VIEW: div element to hold forms for signing up and signing in,
-representing the entrance 'page' of the SPA-->
-<div id='sign-in-page' class='visible'>
+<div id='page-view'>
+
+  <!--SIGN-UP/IN VIEW: div element to hold forms for signing up and signing in,
+  representing the entrance 'page' of the SPA-->
+  <div id='sign-in-up-view' class='visible'>
 
 
 
-    <!--SIGN-UP FORM: Form element to contain input for creating new user;
-    email, password and confirmation of password-->
-  <form id='sign-up' class='border'>
-    <fieldset>
-    <legend>Sign Up</legend>
-      <input type='text' name='credentials[email]' placeholder='user@email.com'>
-      <input type='password' name='credentials[password]' placeholder='password123'>
-      <input type='password' name='credentials[password_confirmation]' placeholder='confirm password'>
-      <input type='submit' value='sign up!'>
-   </fieldset>
-  </form>
+      <!--SIGN-UP FORM: Form element to contain input for creating new user;
+      email, password and confirmation of password-->
+    <form id='sign-up' class='border'>
+      <fieldset>
+      <legend>Sign Up</legend>
+        <input type='text' name='credentials[email]' placeholder='user@email.com'>
+        <input type='password' name='credentials[password]' placeholder='password123'>
+        <input type='password' name='credentials[password_confirmation]' placeholder='confirm password'>
+        <input type='submit' value='sign up!'>
+     </fieldset>
+    </form>
 
 
 
-  <!--SIGN-IN FORM: Form element to contain input for signing in existing user:
-  email, and password-->
-  <form id='sign-in' class='border'>
-    <fieldset>
-    <legend>Sign In</legend>
-      <input type='text' name='credentials[email]' placeholder='user@email.com'>
-      <input type='password' name='credentials[password]' placeholder='password123'>
-      <input type='submit' value='Log In!'>
-    </fieldset>
-  </form>
+    <!--SIGN-IN FORM: Form element to contain input for signing in existing user:
+    email, and password-->
+    <form id='sign-in' class='border'>
+      <fieldset>
+      <legend>Sign In</legend>
+        <input type='text' name='credentials[email]' placeholder='user@email.com'>
+        <input type='password' name='credentials[password]' placeholder='password123'>
+        <input type='submit' value='Log In!'>
+      </fieldset>
+    </form>
 
-<!--TEST-->
-<form id='test' class='border'>
-  <fieldset>
-    <input type='text' name='testInput' placeholder="type some text to test clearing">
-    <input type='submit' value='test CLEAR!'>
-  </fieldset>
-
-
-</div>
-
-
-
-<!--GAME VIEW: div element to hold tic-tac-toe board, reset/new-game
-button and div to hold symbol representing current player's turn-->
-<div id='game-page' class='invisible'>
-
-
-
-  <!--PLAYER-TURN: div holding X-or-O, to show player(s) whose turn it is-->
-    <h1>Current Player:</h1>
-    <div id='player-turn'>
-
-    </div>
-
-
-<!--GAME-GRID: div element holding other div elements to represent
-the tic-tac-toe board. Clicking on any of the 'cells' updates the
-game in the UI and the stored-data.-->
-  <div id='game-grid'>
-    <div class='row'>
-      <div class='col-sm' id='0'></div>
-      <div class='col-sm' id='1'></div>
-      <div class='col-sm' id='2'></div>
-    </div>
-    <div class='row'>
-      <div class='col-sm' id='3'></div>
-      <div class='col-sm' id='4'></div>
-      <div class='col-sm' id='5'></div>
-    </div>
-    <div class='row'>
-      <div class='col-sm' id='6'></div>
-      <div class='col-sm' id='7'></div>
-      <div class='col-sm' id='8'></div>
-    </div>
   </div>
 
 
 
+  <!--GAME VIEW: div element to hold tic-tac-toe board, reset/new-game
+  button and div to hold symbol representing current player's turn-->
+  <!--<div id='game-page' class='invisible'>-->
+  <div id='game-view'>
+
+
+    <!--PLAYER-TURN: div holding X-or-O, to show player(s) whose turn it is-->
+      <h1>Current Player:</h1>
+      <div id='player-turn'>
+
+      </div>
+
+
+  <!--GAME-GRID: div element holding other div elements to represent
+  the tic-tac-toe board. Clicking on any of the 'cells' updates the
+  game in the UI and the stored-data.-->
+    <div id='game-grid'>
+      <div class='row'>
+        <div class='col-sm' id='0'></div>
+        <div class='col-sm' id='1'></div>
+        <div class='col-sm' id='2'></div>
+      </div>
+      <div class='row'>
+        <div class='col-sm' id='3'></div>
+        <div class='col-sm' id='4'></div>
+        <div class='col-sm' id='5'></div>
+      </div>
+      <div class='row'>
+        <div class='col-sm' id='6'></div>
+        <div class='col-sm' id='7'></div>
+        <div class='col-sm' id='8'></div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+  <div id='stats-view'>
+  </div>
+
+
+
+  <!--CHANGE-PASSWORD FORM: allows user to change their password. Sends curl
+  command to API to update user account with new password-->
+  <div id='change-password-view'>
+
+
+
+    <form id='change-password'>
+      <fieldset>
+        <legend>Change Password</legend>
+        <input type='password' name='passwords[old]' placeholder='password123'>
+        <input type='password' name='passwords[new]' placeholder='password456'>
+        <input type='submit' value='Change Password!'>
+      </fieldset>
+    </form>
+
+
+
+  </div>
+
+
 </div>
+
+
 
 
 
@@ -109,7 +134,7 @@ game in the UI and the stored-data.-->
 see once they sign-in. The menu contains a link to start a new game,
 a link to the stats(previous games played) page, and a feature/function
 to change the user's password-->
-<div id='logged-in-menu-page' class='invisible'>
+<div id='logged-in-menu'>
 
 
 
@@ -118,22 +143,10 @@ to change the user's password-->
   <form id='menu-links'>
     <fieldset>
       <legend>TIC-TAK-TOE 2020(copyright 1980)</legend>
-      <input id='new-game' type='button' value='Start a new game!'>
-      <input id='show-stats' type='button' value='Revisit old games!'>
-    </fieldset>
-  </form>
-
-
-
-
-  <!--CHANGE-PASSWORD FORM: allows user to change their password. Sends curl
-  command to API to update user account with new password-->
-  <form id='change-password'>
-    <fieldset>
-      <legend>Change Password</legend>
-      <input type='password' name='passwords[old]' placeholder='password123'>
-      <input type='password' name='passwords[new]' placeholder='password456'>
-      <input type='submit' value='Change Password!'>
+      <input id='new-game' type='button' value='NEW/RESET GAME'>
+      <input id='show-stats' type='button' value='REVIEW GAME STATS'>
+      <input id='show-change-password' type='button' value='CHANGE PASSWORD'>
+      <input id='sign-out' type='button' value='SIGN OUT USER'>
     </fieldset>
   </form>
 

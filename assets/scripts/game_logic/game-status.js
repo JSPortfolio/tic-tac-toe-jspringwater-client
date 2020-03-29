@@ -84,6 +84,12 @@ const currentPlayerUI = function () {
   return currentPlayer
 }
 
+const currentPlayerUISet = function (playerVal) {
+
+  currentPlayer = playerVal
+}
+
+
 module.exports = {
 
   nextTurnUI,
@@ -91,6 +97,8 @@ module.exports = {
   checkForWin,
 
   currentPlayerUI,
+
+  currentPlayerUISet,
 
   checkForTie
 }

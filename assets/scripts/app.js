@@ -17,15 +17,25 @@ const store = require('./store.js')
 let currentPlayer = 'X'
 
 $(() => {
+  $('#logged-in-menu').hide()
+
+  $('#game-view').hide()
+
+  $('#stats-view').hide()
+
+  $('#change-password-view').hide()
+
   $('#player-turn').html('<h1 class=tilePlaced>' + currentPlayer + '</h1>')
 
   $('#sign-up').on('submit', authEvents.onSignUp)
 
   $('#sign-in').on('submit', authEvents.onSignIn)
 
+  $('#show-change-password').on('click', authEvents.showChangePassword)
+
   $('#change-password').on('submit', authEvents.onChangePassword)
 
-  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#sign-out').on('click', authEvents.onSignOut)
 
   $('#new-game').on('click', gameEvents.onCreateGame)
 

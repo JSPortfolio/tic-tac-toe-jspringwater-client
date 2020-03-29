@@ -49,6 +49,12 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFail)
 }
 
+const showChangePassword = function () {
+  $('#stats-view').hide()
+  $('#change-password-view').show()
+  $('#game-view').hide()
+}
+
 // function to call api and ui functions related
 // to logging user out
 const onSignOut = function (event) {
@@ -68,6 +74,8 @@ module.exports = {
   onSignIn,
 
   onChangePassword,
+
+  showChangePassword,
 
   onSignOut
 }

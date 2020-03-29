@@ -35,16 +35,14 @@ const signInSuccess = function (data) {
   $('#sign-in :text').val('')
   $('#sign-in :password').val('')
 
+  $('#sign-in-up-view').hide()
+  $('#logged-in-menu').show()
+
   console.log('User signed in: ', data)
 
-  $('#message').html('<h1>SIGNUP SUCCESSFUL!</h1>')
+  $('#message').html('<h1>SIGN-IN SUCCESSFUL!</h1>')
   $('#message').removeClass()
   $('#message').addClass('success')
-
-  $('#sign-in-page').removeClass()
-  $('#sign-in-page').addClass('invisible')
-  $('#logged-in-menu-page').removeClass()
-  $('#logged-in-menu-page').addClass('visible')
 }
 
 const signInFail = function (error) {
@@ -87,16 +85,18 @@ const signOutSuccess = function () {
 
   console.log('User is signed out.', store)
 
-  $('#game-page').removeClass()
-  $('#game-page').addClass('invisible')
-  $('#logged-in-menu-page').removeClass()
-  $('#logged-in-menu-page').addClass('visible')
+  $('#stats-view').hide()
+  $('#change-password-view').hide()
+  $('#game-view').hide()
+  $('#logged-in-menu').hide()
+  $('#sign-in-up-view').show()
 
   $('#message').html('<h1>SIGNOUT SUCCESSFUL!</h1>')
   $('#message').removeClass()
   $('#message').addClass('success')
 
   store.game = ' '
+
 }
 
 const signOutFail = function (error) {
