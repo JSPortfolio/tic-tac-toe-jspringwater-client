@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+      <h1>Jeff's Tic-Tak-Toe 2020</h1>
+
+
+
+<!--MESSAGE LOG: div element to hold html elements containing messages regarding
+error-or-success of function-->
+<div id='message'></div>
+
+
+
+<div id='page-view'>
+
+  <!--SIGN-UP/IN VIEW: div element to hold forms for signing up and signing in,
+  representing the entrance 'page' of the SPA-->
+  <div id='sign-in-up-view' class='menu'>
+
+
+
+      <!--SIGN-UP FORM: Form element to contain input for creating new user;
+      email, password and confirmation of password-->
+    <form id='sign-up' class='border'>
+      <fieldset>
+      <legend>Sign Up</legend>
+        <input type='text' name='credentials[email]' placeholder='user@email.com'>
+        <input type='password' name='credentials[password]' placeholder='password123'>
+        <input type='password' name='credentials[password_confirmation]' placeholder='confirm password'>
+        <input type='submit' value='sign up!'>
+     </fieldset>
+    </form>
+
+
+
+    <!--SIGN-IN FORM: Form element to contain input for signing in existing user:
+    email, and password-->
+    <form id='sign-in' class='border'>
+      <fieldset>
+      <legend>Sign In</legend>
+        <input type='text' name='credentials[email]' placeholder='user@email.com'>
+        <input type='password' name='credentials[password]' placeholder='password123'>
+        <input type='submit' value='Log In!'>
+      </fieldset>
+    </form>
+
+  </div>
+
+
+
+  <!--GAME VIEW: div element to hold tic-tac-toe board, reset/new-game
+  button and div to hold symbol representing current player's turn-->
+  <!--<div id='game-page' class='invisible'>-->
+  <div id='game-view'>
+
+
+    <!--PLAYER-TURN: div holding X-or-O, to show player(s) whose turn it is-->
+      <h1>Current Player:</h1>
+      <div id='player-turn'>
+
+      </div>
+
+
+  <!--GAME-GRID: div element holding other div elements to represent
+  the tic-tac-toe board. Clicking on any of the 'cells' updates the
+  game in the UI and the stored-data.-->
+    <div id='game-grid'>
+      <div class='row'>
+        <div class='col-sm' id='0'><h1></h1></div>
+        <div class='col-sm' id='1'><h1></h1></div>
+        <div class='col-sm' id='2'><h1></h1></div>
+      </div>
+      <div class='row'>
+        <div class='col-sm' id='3'></div>
+        <div class='col-sm' id='4'></div>
+        <div class='col-sm' id='5'></div>
+      </div>
+      <div class='row'>
+        <div class='col-sm' id='6'></div>
+        <div class='col-sm' id='7'></div>
+        <div class='col-sm' id='8'></div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+  <div id='stats-view'>
+  </div>
+
+
+
+  <!--CHANGE-PASSWORD FORM: allows user to change their password. Sends curl
+  command to API to update user account with new password-->
+  <div id='change-password-view'>
+
+
+
+    <form id='change-password'>
+      <fieldset>
+        <legend>Change Password</legend>
+        <input type='password' name='passwords[old]' placeholder='password123'>
+        <input type='password' name='passwords[new]' placeholder='password456'>
+        <input type='submit' value='Change Password!'>
+      </fieldset>
+    </form>
+
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+<!--LOGGEDIN-MENU VIEW:A div element to hold the menu viewers
+see once they sign-in. The menu contains a link to start a new game,
+a link to the stats(previous games played) page, and a feature/function
+to change the user's password-->
+<div id='logged-in-menu'>
+
+
+
+  <!--NEW-GAME/OLD-GAME FORM: provides input elements that link to game
+  view and stats view-->
+  <form id='menu-links' class='menu'>
+    <fieldset>
+      <legend>TIC-TAK-TOE 2020(copyright 1980)</legend>
+      <input id='new-game' type='button' value='NEW/RESET GAME'>
+      <input id='show-stats' type='button' value='REVIEW GAME STATS'>
+      <input id='show-change-password' type='button' value='CHANGE PASSWORD'>
+      <input id='sign-out' type='button' value='SIGN OUT USER'>
+    </fieldset>
+  </form>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>
