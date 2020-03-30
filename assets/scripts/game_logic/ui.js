@@ -13,6 +13,8 @@ const createGameSuccess = function (data) {
 
   gameStatus.currentPlayerUISet('X')
 
+  $('#player-turn').html('<h1 class="tilePlaced">' + gameStatus.currentPlayerUI() + '</h1>')
+
   $('#stats-view').hide()
   $('#change-password-view').hide()
   $('#game-view').show()
